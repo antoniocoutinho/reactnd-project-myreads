@@ -5,7 +5,7 @@ class AddBook extends Component {
         return(
             <div className="open-search">
             {/* Receving propsAddBook from App.js. */}
-              <a onClick={this.props.propsAddBook}>Add a book</a>
+              <a onClick={this.props.AddBook}>Add a book</a>
             </div>
         )
     }
