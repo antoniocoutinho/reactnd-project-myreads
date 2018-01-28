@@ -4,8 +4,9 @@ import './App.css'
 import CurrentlyReading from './CurrentlyReading'
 import WantToRead from './WantToRead';
 import Read from './Read';
-
+import AddBook from './AddBook'
 class BooksApp extends React.Component {
+
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -16,6 +17,9 @@ class BooksApp extends React.Component {
     showSearchPage: false
   }
 
+  addBook = () =>{
+    this.setState({showSearchPage: true})
+  }
   render() {
     return (
       <div className="app">
@@ -52,9 +56,9 @@ class BooksApp extends React.Component {
                 <Read/>
               </div>
             </div>
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            </div>
+            <AddBook
+              propsAddBook={this.addBook}
+            />
           </div>
         )}
       </div>
