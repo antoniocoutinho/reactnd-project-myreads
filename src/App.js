@@ -17,7 +17,7 @@ class BooksApp extends React.Component {
           exact path='/'
           render={() => (
             <ListBooks
-              AddBook={()=>{this.addBook}} />
+              AddBook={this.addBook} />
           )}
         />
         <Route
