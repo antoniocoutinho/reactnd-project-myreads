@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-
 import CurrentlyReading from './CurrentlyReading'
 import WantToRead from './WantToRead';
 import Read from './Read';
-import AddBook from './AddBook'
+import { Link } from 'react-router-dom';
 
 
 class ListBooks extends Component {
@@ -21,9 +20,12 @@ class ListBooks extends Component {
                 <Read/>
               </div>
             </div>
-            <AddBook
-              propsAddBook={this.props.AddBook}
-            />
+            <div className="open-search">
+              <Link
+                      to='/search'
+                  >Open Search
+              </Link>
+            </div>
           </div>
         )
     }
