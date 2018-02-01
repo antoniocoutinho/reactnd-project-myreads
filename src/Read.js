@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class Read extends Component {
     render() {
-      const { books } = this.props;
+      const { readList } = this.props;
         return (
             <div className="bookshelf">
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
                   <ol className='books-grid'>
-                  {books.map((book) => (
+                  {readList.map((book) => (
                     <li key={book.id}>
                       <div className="book">
                       <p>{book.shelf}</p>

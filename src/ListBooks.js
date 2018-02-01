@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 
 class ListBooks extends Component {
     render (){
-      const { books } = this.props
+      const { books, currentlyReadingList, wantToReadList, readList  } = this.props
+      
         return(
             <div className="list-books">
             <div className="list-books-title">
@@ -19,16 +20,16 @@ class ListBooks extends Component {
               <div>
                 <CurrentlyReading
                   // books Array with all books, without shelf filter.
-                  books={books}
+                  currentlyReadingList={currentlyReadingList}
                   
                 />
                 <WantToRead
                   // books Array with all books, without shelf filter.
-                  books={books}
+                  wantToReadList={wantToReadList}
                 />
                 <Read
                   // books Array with all books, without shelf filter.
-                  books={books}
+                  readList={readList}
                 />
               </div>
             </div>

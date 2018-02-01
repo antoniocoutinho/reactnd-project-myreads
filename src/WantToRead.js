@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class WantToRead extends Component {
     render() {
-        const { books } = this.props;
+        const { wantToReadList } = this.props;
         return (
             <div className="bookshelf">
                 <h2 className="bookshelf-title">Want to Read</h2>
                 <div className="bookshelf-books">
-                
+
                 <ol className='books-grid'>
-                {books.map((book) => (
+                {wantToReadList.map((book) => (
                   <li key={book.id}>
                     <div className="book">
                     <p>{book.shelf}</p>
