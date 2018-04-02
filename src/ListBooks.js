@@ -19,16 +19,13 @@ class ListBooks extends Component {
             
               <div>
                 <CurrentlyReading
-                  // books Array with all books, without shelf filter.
                   currentlyReadingList={currentlyReadingList}
                   
                 />
                 <WantToRead
-                  // books Array with all books, without shelf filter.
                   wantToReadList={wantToReadList}
                 />
                 <Read
-                  // books Array with all books, without shelf filter.
                   readList={readList}
                 />
               </div>
