@@ -41,7 +41,6 @@ class SearchBooks extends Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-
           <Link
             to='/'
             className='close-search'
