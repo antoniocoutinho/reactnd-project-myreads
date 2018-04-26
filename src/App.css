@@ -172,3 +172,7 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+.showing-books {
+  text-align: center;
+  margin: 20px 0;
+}

@@ -6,7 +6,7 @@ class SearchBooks extends Component {
 
   state = {
     books: [],
-    query: ""
+    query: "",
   };
   onChangeQuery = (q) => {
     let query = q.trim();
@@ -62,12 +62,13 @@ class SearchBooks extends Component {
             />
 
           </div>
-
         </div>
-        {(this.state.books.length === 0)
+        {(this.state.books.length === 0 && this.state.query !== "")
           ?
           <div className="search-books-results">
-            Resultados {this.state.books.length}
+            <div className='showing-books'>
+              <span>The search returned {this.state.books.length} results.</span>
+            </div>
           </div>
           : <div className="search-books-results">
             <ol className="books-grid">
