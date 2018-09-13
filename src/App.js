@@ -12,16 +12,18 @@ class BooksApp extends React.Component {
   }
   
   changeShelf = (book, shelf) => {
+    //First update to the target shelf
     book.shelf = shelf;
     //Updating the shelf of the book, via BooksAPI and send a new object to the then() method
     BooksAPI.update(book, shelf).then( () => {
-      //Find every id diferent to the book.id, concatenating the updated book to the list of objects and save into newBookList variable     
+      //Returning the book list without diferent of the book.id, concatenating the updated book object to the list of objects and save into newBookList variable     
       let newBookList = this.state.books.filter( (b) => b.id !== book.id).concat([ book ])
-      //Updating the state in order to render on my browser 
+      //Updating the state in order to render it on my browser 
       this.setState({books:newBookList})
     });
   };
   componentDidMount(){
+    //Getting all boosks from API and updating the state in order to render it on my browser
     BooksAPI.getAll().then((books) => {
       this.setState({books})
     })
