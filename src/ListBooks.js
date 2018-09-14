@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 
 
 class ListBooks extends Component {
+
+  /*Using PropTypes to typecheck arrays, funcs, strings...*/
   static propTypes = {
     books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired
@@ -11,6 +13,7 @@ class ListBooks extends Component {
 
   render() {
     const { books, onChangeShelf } = this.props;
+    /* Filtering books on each shelfs*/
     let currentlyReadingList = books.filter(books => books.shelf === 'currentlyReading')
     let wantToReadList = books.filter(books => books.shelf === 'wantToRead')
     let readList = books.filter(books => books.shelf === 'read')
