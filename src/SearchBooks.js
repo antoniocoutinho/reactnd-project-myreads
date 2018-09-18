@@ -62,6 +62,7 @@ class SearchBooks extends Component {
 
           </div>
         </div>
+        {/*Using Ternary Operator to render the search return*/}
         {(this.state.books.length === 0 && this.state.query !== "")
           ?
           <div className="search-books-results">
@@ -70,6 +71,7 @@ class SearchBooks extends Component {
             </div>
           </div>
           : <div className="search-books-results">
+          {/*Using Ternary Operator to render the quantity of the search return*/}
             {(this.state.books.length !== 0 && this.state.query !== "")
               ?
               <div className='showing-books'>
