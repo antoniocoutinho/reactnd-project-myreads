@@ -51,7 +51,7 @@ class SearchBooks extends Component {
             to='/'
             className='close-search'
           >Close Search
-              </Link>
+          </Link>
 
           <div className="search-books-input-wrapper">
             <input
@@ -70,6 +70,15 @@ class SearchBooks extends Component {
             </div>
           </div>
           : <div className="search-books-results">
+            {(this.state.books.length !== 0 && this.state.query !== "")
+              ?
+              <div className='showing-books'>
+                <span>The search returned {this.state.books.length} results.</span>
+              </div>
+              :
+              <div className='showing-books'>
+              </div>
+            }
             <ol className="books-grid">
               {this.state.books.map(book =>
                 <li key={book.id}>
