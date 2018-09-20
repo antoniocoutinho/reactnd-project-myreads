@@ -11,7 +11,7 @@ class SearchBooks extends Component {
   }
 
   state = {
-    books: [],
+    searchResult: [],
     query: "",
   };
   onChangeQuery = (q) => {
@@ -19,15 +19,13 @@ class SearchBooks extends Component {
     if (q) {
       BooksAPI.search(query).then(book => {
         if (book.error === 'empty query') {
-          console.log('book object: ', book)
-          console.log('book.error: ', book.error)
           this.setState({
-            books: [],
+            searchResult: [],
             query: q
           })
         } else {
           this.setState({
-            books: book,
+            searchResult: book,
             query: q
           })
         }
@@ -36,14 +34,15 @@ class SearchBooks extends Component {
       })
     } else {
       this.setState({
-        books: [],
+        searchResult: [],
         query: ''
       });
     }
   }
 
   render() {
-    const { onChangeShelf } = this.props;
+    const { onChangeShelf, books } = this.props;
+    console.log(books)
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -63,26 +62,26 @@ class SearchBooks extends Component {
           </div>
         </div>
         {/*Using Ternary Operator to render the search return*/}
-        {(this.state.books.length === 0 && this.state.query !== "")
+        {(this.state.searchResult.length === 0 && this.state.query !== "")
           ?
           <div className="search-books-results">
             <div className='showing-books'>
-              <span>The search returned {this.state.books.length} results.</span>
+              <span>The search returned {this.state.searchResult.length} results.</span>
             </div>
           </div>
           : <div className="search-books-results">
           {/*Using Ternary Operator to render the quantity of the search return*/}
-            {(this.state.books.length !== 0 && this.state.query !== "")
+            {(this.state.searchResult.length !== 0 && this.state.query !== "")
               ?
               <div className='showing-books'>
-                <span>The search returned {this.state.books.length} results.</span>
+                <span>The search returned {this.state.searchResult.length} results.</span>
               </div>
               :
               <div className='showing-books'>
               </div>
             }
             <ol className="books-grid">
-              {this.state.books.map(book =>
+              {this.state.searchResult.map(book =>
                 <li key={book.id}>
                   <div className="book">
                     <div className="book-top">
