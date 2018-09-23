@@ -19,11 +19,21 @@ class SearchBooks extends Component {
     if (q) {
       BooksAPI.search(query).then(book => {
         if (book.error === 'empty query') {
+          console.log('Resultado: ', book.error)
           this.setState({
             searchResult: [],
             query: q
           })
         } else {
+          //Searching which ones already be on my shelves
+          let booksFromShelfs = this.props.books
+          for(let i=0; i< booksFromShelfs.length; i++){
+            for(let y=0; y< book.length; y++){
+              if(booksFromShelfs[i].id === book[y].id){
+                  book[y].shelf = booksFromShelfs[i].shelf
+              }
+            }
+          }
           this.setState({
             searchResult: book,
             query: q
@@ -41,8 +51,7 @@ class SearchBooks extends Component {
   }
 
   render() {
-    const { onChangeShelf, books } = this.props;
-    console.log(books)
+    const { onChangeShelf } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">

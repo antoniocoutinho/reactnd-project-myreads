@@ -1,5 +1,5 @@
 This project is the first assignment to the Course of React and React Native developer 
-# Clone this porject
+# Clone this project
 
 First clone this repository in your PC:<br>
 git clone https://github.com/antoniocoutinho/reactnd-project-myreads.git
