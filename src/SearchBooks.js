@@ -17,25 +17,24 @@ class SearchBooks extends Component {
   onChangeQuery = (q) => {
     let query = q.trim();
     if (q) {
-      BooksAPI.search(query).then(book => {
-        if (book.error === 'empty query') {
-          console.log('Resultado: ', book.error)
+      BooksAPI.search(query).then(booksFromSearch => {        
+        if (booksFromSearch.error === 'empty query') {
           this.setState({
             searchResult: [],
             query: q
           })
         } else {
-          //Searching which ones already be on my shelves
-          let booksFromShelfs = this.props.books
-          for(let i=0; i< booksFromShelfs.length; i++){
-            for(let y=0; y< book.length; y++){
-              if(booksFromShelfs[i].id === book[y].id){
-                  book[y].shelf = booksFromShelfs[i].shelf
-              }
+          //Searching which ones already be on my shelves 
+          let booksFromShelfs = this.props.books        
+          const newBooksFromSearch= booksFromSearch.map(b1 => {
+            const bAux = booksFromShelfs.find(b2 => b2.id === b1.id);
+            if(bAux){
+              b1.shelf = bAux.shelf;
             }
-          }
+            return b1;
+          });
           this.setState({
-            searchResult: book,
+            searchResult: newBooksFromSearch,
             query: q
           })
         }
