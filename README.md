@@ -9,6 +9,3 @@ yarn install
 
 # Start the developer server
 yarn start
-
-# Start tests
-yarn test
