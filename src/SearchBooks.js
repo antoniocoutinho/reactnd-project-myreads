@@ -17,7 +17,7 @@ class SearchBooks extends Component {
   onChangeQuery = (q) => {
     let query = q.trim();
     if (q) {
-      BooksAPI.search(query).then(booksFromSearch => {        
+      BooksAPI.search(query).then(booksFromSearch => {
         if (booksFromSearch.error === 'empty query') {
           this.setState({
             searchResult: [],
@@ -25,10 +25,10 @@ class SearchBooks extends Component {
           })
         } else {
           //Searching which ones already be on my shelves 
-          let booksFromShelfs = this.props.books        
-          const newBooksFromSearch= booksFromSearch.map(b1 => {
+          let booksFromShelfs = this.props.books
+          const newBooksFromSearch = booksFromSearch.map(b1 => {
             const bAux = booksFromShelfs.find(b2 => b2.id === b1.id);
-            if(bAux){
+            if (bAux) {
               b1.shelf = bAux.shelf;
             }
             return b1;
@@ -78,7 +78,7 @@ class SearchBooks extends Component {
             </div>
           </div>
           : <div className="search-books-results">
-          {/*Using Ternary Operator to render the quantity of the search return*/}
+            {/*Using Ternary Operator to render the quantity of the search return*/}
             {(this.state.searchResult.length !== 0 && this.state.query !== "")
               ?
               <div className='showing-books'>
@@ -93,8 +93,15 @@ class SearchBooks extends Component {
                 <li key={book.id}>
                   <div className="book">
                     <div className="book-top">
-                      <div className="book-cover"
-                        style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                    {/*Verifying if there is a imageLinks property*/}
+                      {book.imageLinks ?
+                        <div className="book-cover"
+                          style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}>
+                        </div>
+                        :
+                        <div className="book-cover">
+                        </div>
+                      }
                       <div className="book-shelf-changer">
                         <select value={book.shelf ? book.shelf : "none"}
                           onChange={(event) => onChangeShelf(book, event.target.value)} >

@@ -35,8 +35,15 @@ class ListBooks extends Component {
                     <li key={book.id}>
                       <div className="book">
                         <div className="book-top">
-                          <div className="book-cover"
-                            style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                          {/*Verifying if there is a imageLinks property*/}
+                          {book.imageLinks ?
+                            <div className="book-cover"
+                              style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}>
+                            </div>
+                            :
+                            <div className="book-cover">
+                            </div>
+                          }
                           <div className="book-shelf-changer">
                             <select value={book.shelf ? book.shelf : "none"} onChange={(event) => onChangeShelf(book, event.target.value)}>
                               <option value="none" disabled>Move to...</option>
@@ -66,8 +73,15 @@ class ListBooks extends Component {
                     <li key={book.id}>
                       <div className="book">
                         <div className="book-top">
-                          <div className="book-cover"
-                            style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                          {/*Verifying if there is a imageLinks property*/}
+                          {book.imageLinks ?
+                            <div className="book-cover"
+                              style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}>
+                            </div>
+                            :
+                            <div className="book-cover">
+                            </div>
+                          }
                           <div className="book-shelf-changer">
                             <select value={book.shelf ? book.shelf : "none"} onChange={(event) => onChangeShelf(book, event.target.value)}>
                               <option value="none" disabled>Move to...</option>
@@ -95,8 +109,15 @@ class ListBooks extends Component {
                     <li key={book.id}>
                       <div className="book">
                         <div className="book-top">
-                          <div className="book-cover"
-                            style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                          {/*Verifying if there is a imageLinks property*/}
+                          {book.imageLinks ?
+                            <div className="book-cover"
+                              style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}>
+                            </div>
+                            :
+                            <div className="book-cover">
+                            </div>
+                          }
                           <div className="book-shelf-changer">
                             <select value={book.shelf ? book.shelf : "none"} onChange={(event) => onChangeShelf(book, event.target.value)} >
                               <option value="none" disabled>Move to...</option>
