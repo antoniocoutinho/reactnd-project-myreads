@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
 import { Link } from 'react-router-dom'
+import {debounce} from "lodash"
 import PropTypes from 'prop-types'
 
 class SearchBooks extends Component {
@@ -14,7 +15,7 @@ class SearchBooks extends Component {
     searchResult: [],
     query: "",
   };
-  onChangeQuery = (q) => {
+  onChangeQuery = debounce((q) => {
     let query = q.trim();
     if (q) {
       BooksAPI.search(query).then(booksFromSearch => {
@@ -47,7 +48,7 @@ class SearchBooks extends Component {
         query: ''
       });
     }
-  }
+  }, 1500);
 
   render() {
     const { onChangeShelf } = this.props;
