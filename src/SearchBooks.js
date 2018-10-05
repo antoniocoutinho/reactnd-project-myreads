@@ -26,9 +26,9 @@ class SearchBooks extends Component {
           })
         } else {
           //Searching which ones already be on my shelves 
-          let booksFromShelfs = this.props.books
+          let booksFromShelves = this.props.books
           const newBooksFromSearch = booksFromSearch.map(b1 => {
-            const bAux = booksFromShelfs.find(b2 => b2.id === b1.id);
+            const bAux = booksFromShelves.find(b2 => b2.id === b1.id);
             if (bAux) {
               b1.shelf = bAux.shelf;
             }
