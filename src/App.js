@@ -22,11 +22,10 @@ class BooksApp extends React.Component {
       this.setState({books:newBookList})
     });
   };
-  componentDidMount(){
+  async componentDidMount(){
     //Getting all boosks from API and updating the state in order to render it on my browser
-    BooksAPI.getAll().then((books) => {
+    const books = await BooksAPI.getAll()
       this.setState({books})
-    })
   }
 
   render() {
