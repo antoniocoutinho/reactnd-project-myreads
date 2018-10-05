@@ -7,7 +7,6 @@ class ListBooks extends Component {
 
   /*Using PropTypes to typecheck arrays, funcs, strings...*/
   static propTypes = {
-    shelves: PropTypes.array.isRequired,
     books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired
   }
